@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 
-""" Prototipo del rotulator
-Tiene que hacer 2 cosas:
-1. Crear dataframe en formato CSV a partir de archivo yaml
-2. Crear rotulos en excel a partir de archivo CSV"""
-
 import os
 import sys
 import yaml

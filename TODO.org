@@ -1,7 +1,6 @@
-* TODO Agregar opción -r random ids
+* TODO Agregar checkeo de extension: que se el YAML para crear df y que sea CSV para armar rotulos
 * TODO Que los IDs sean 001 010 100 en vez de 1,10,100
-* TODO Los rotulos no se arman en orden. Por algun motivo se colocan el 1, despues el 3 y 4, Siguiente fila arranca con 2, 5 y 6
-* TODO Agregar checkeo de extension en todas las funciones
+* TODO Funcion create_labels: Chequear si los rotulos entran en 3 columnas o si hay que hacerlo en 2. Ver forma de calcular ancho de pagina A4
 
 
 

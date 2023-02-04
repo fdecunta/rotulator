@@ -128,8 +128,9 @@ def create_labels(csv_file):
         # Para los 3 rotulos armo el string de cada linea
         col_n = 0
         for i in range(0,3):
+            if len(rotulos_list) == 0: # Chequear que aun haya elementos. Puede ser que el numero de unidades exp no sea multiplo de 3
+                break
             rotulo = rotulos_list.pop(0)
-
             line_number = 0
             if col_n == 0:      # Si es la primera columna de rotulos no tiene que dejar espacio
                 separador = ""

@@ -102,7 +102,7 @@ def create_labels(csv_file):
     longest_factor_name, longest_lvl_name = get_longest_string(rotulos)
     longest_row = longest_lvl_name + longest_factor_name + 2 # 2 espacios: uno entre factor/nivel y otro entre rotulos contiguos
 
-    if longest_row < PR_COLS:
+    if longest_row < A4_COLS:
         print_columns = 3
     else:
         print_columns = 2

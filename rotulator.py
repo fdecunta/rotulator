@@ -213,6 +213,7 @@ def main():
     elif options.template:
         with open("template.yaml", "w") as f:
             f.write(template)
+        sys.stdout.write("Se creo template.\n")
         exit(0)
         
     yaml_file = options.to_dataframe

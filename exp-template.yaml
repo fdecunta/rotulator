@@ -1,0 +1,42 @@
+# Config file del experimento.
+# En este archivo YAML se define el diseño experimental: 
+# los factores, sus niveles, el numero de réplicas y si se utilizan o no bloques.
+#
+# Hay 3 parametros:
+#
+# 1. Tratamientos
+#   Se describe cada factor y sus niveles como en este ejemplo.
+#   Notese que los factores estan identados y que sus niveles tienen un nivel mas de identación.
+#
+#   tratamientos:
+#     factor1:
+#       - nivel1
+#       - nivel2
+#       - nivel3
+#     factor2:
+#       - nivel1
+#       - nivel2
+#     etc...
+#
+# 2. Replicas
+#   El número de replicas.
+#
+# 3. Bloques
+#   True si se usan bloques.
+#   False si no se usan bloques.
+#
+
+treatments:
+  endofito:
+    - e+
+    - e-
+  corte_raices:
+    - control
+    - con_corte
+  diloboderus:
+    - h+
+    - h-
+
+replicates: 3
+
+blocks: True

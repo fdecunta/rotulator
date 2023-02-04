@@ -1,0 +1,8 @@
+* TODO Agregar opción -r random ids
+* TODO Que los IDs sean 001 010 100 en vez de 1,10,100
+* TODO Los rotulos no se arman en orden. Por algun motivo se colocan el 1, despues el 3 y 4, Siguiente fila arranca con 2, 5 y 6
+* TODO Agregar checkeo de extension en todas las funciones
+
+
+
+

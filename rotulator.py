@@ -61,7 +61,7 @@ def read_yaml(filepath):
     return exp_design
 
 
-def create_df(exp_design, options):
+def create_df(exp_design, options, random_ids):
     """A partir de la definición del experimento en el archivo YAML
     combina los tratamientos, los multiplica por la cantidad de replicas,
     crea los IDs y bloques (si es necesario) y devuelve una lista
@@ -87,7 +87,7 @@ def create_df(exp_design, options):
     ids = [i for i in range(1,len(replicated_combinations) + 1)]
 
     # Opcion -r: random ids
-    if options.random:
+    if random_ids:
         random.shuffle(ids)        
 
     comm_sep_factors = ','.join(factors)
@@ -194,32 +194,39 @@ def create_labels(csv_file):
 
 def main():
     parser = argparse.ArgumentParser(prog = 'rotulator',
-                                     description = 'Crea un dataframe en formato CSV a partir de un archivo YAML donde se definen los tratamientos, replicas y si se utilizan o no bloques',
-                                     epilog = 'fd - 2023')
-    parser.add_argument('--template', action='store_true', default=False,
+                                     description = 'Crea un dataframe en formato CSV a partir de un archivo YAML donde se definen los tratamientos, replicas y si se utilizan o no bloques')
+
+    parser.add_argument('--new-template', action='store_true', default=False,
                         help='Template: crea una plantilla YAML para cargar el diseño de un experimento.')
-    parser.add_argument('--to-dataframe', action='store',
-                        help="Create dataframe. Crea un CSV a partir del archivo YAML pasado como argumento")
     parser.add_argument('-r', '--random', action='store_true', default=False,
-                        help='Random: ordena los IDs al azar') 
-    parser.add_argument("--labels", action='store',
+                        help='Random: ordena los IDs al azar. Se debe pasar antes de --template-to-dataframe') 
+    parser.add_argument('--template-to-dataframe', action='store',
+                        help="Create dataframe. Crea un CSV a partir del archivo YAML pasado como argumento")
+    parser.add_argument("--dataframe-to-labels", action='store',
                         help="Create labels: arma rotulos para macetas a partir de un archivo CSV")
     options = parser.parse_args()    
 
-
-    if options.labels:
-        create_labels(options.labels)
-        exit(0)
-    elif options.template:
+    # --new-template
+    if options.new_template:
         with open("template.yaml", "w") as f:
             f.write(template)
         sys.stdout.write("Se creo template.\n")
-        exit(0)
+
+    # --template-to-dataframe
+    elif options.template_to_dataframe is not None:
+        yaml_file = options.template_to_dataframe
+        exp_design = read_yaml(yaml_file)
+        df_lines = create_df(exp_design, options, options.random)
+        sys.stdout.writelines(df_lines)
         
-    yaml_file = options.to_dataframe
-    exp_design = read_yaml(yaml_file)
-    df_lines = create_df(exp_design, options)
-    sys.stdout.writelines(df_lines)
+    # --dataframe-to-labels
+    elif options.dataframe_to_labels is not None:
+        csv_file = options.dataframe_to_labels
+        create_labels(csv_file)
+
+    else:
+        parser.print_help()
+
     exit(0)
 
 

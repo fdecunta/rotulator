@@ -19,7 +19,7 @@ sudo make uninstall
 
 # How to use
 
-1. **Create a YAML file with a template** to specify your experimental design:
+1. **Create a YAML file with a template** to specify the experimental design:
 
 ```
 rotulator -t
@@ -28,7 +28,7 @@ vim template.yaml
 
 **Modify the template** to define the factors, their levels, number of replicates, and whether blocks are needed.
 
-2. **Generate the CSV file** for your experiment:
+2. **Generate the CSV file** for the experiment:
 
 ```
 rotulator -d template.yaml > experiment.csv

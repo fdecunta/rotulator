@@ -11,7 +11,7 @@ vim template.yaml
 
 Modify the template to specify the factors and their levels, number of replicates, and if blocks are needed.
 
-Then, create the csv:
+Then, create the CSV:
 
 ```
 rotulator -d template.yaml > experiment.csv

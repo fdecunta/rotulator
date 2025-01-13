@@ -1,9 +1,0 @@
-* TODO En vez de ser 6 columnas, que sean 3. Que el ancho de cada una sea suficiente para la combinación mas larga de "factor\s\snivel"
-* TODO Agregar checkeo de extension: que se el YAML para crear df y que sea CSV para armar rotulos
-* TODO Que los IDs sean 001 010 100 en vez de 1,10,100
-* TODO Funcion create_labels: Chequear si los rotulos entran en 3 columnas o si hay que hacerlo en 2. Ver forma de calcular ancho de pagina A4
-* TODO Ver que la opcion -r sea solo para --dataframe
-
-
-
-

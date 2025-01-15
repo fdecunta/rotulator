@@ -1,6 +1,6 @@
 # rotulator
 
-I use this small program to generate CSV files for factorial designs in plant experiments and then create paper labels to attach to the pots. The workflow is awkward, but it gets the job done, and I've been using it for years. 
+I use this to generate CSV files for factorial designs in plant experiments and then create paper labels to attach to the pots. The workflow is awkward, but it gets the job done, and I've been using it for years. 
 
 # Installation
 
